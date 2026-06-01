@@ -4835,11 +4835,13 @@ section[id] { scroll-margin-top: 80px; }
   border: 1px solid rgba(255,255,255,0.2);
   display: block;
 }
-.final-cta__signature-photo image-slot {
+.final-cta__signature-photo image-slot,
+.final-cta__signature-photo img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   border: none;
+  object-fit: cover;
   background: var(--noite-2);
   --slot-bg: var(--noite-2);
 }
@@ -5126,7 +5128,7 @@ section[id] { scroll-margin-top: 80px; }
   border: none;
   padding: 14px;
   box-sizing: border-box;
-  --slot-bg: var(--noite-2);
+  object-fit: contain;
 }
 .method2__slot::part(empty) {
   background: rgba(255,255,255,0.03);
@@ -5228,7 +5230,8 @@ section[id] { scroll-margin-top: 80px; }
   height: auto;
   min-height: 0;
   border: none;
-  --slot-bg: var(--palha);
+  object-fit: cover;
+  background: var(--palha);
 }
 
 .founder2__id {

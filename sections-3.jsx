@@ -124,12 +124,12 @@ function Founder() {
         <div className="founder2">
           <aside className="founder2__aside">
             <figure className="founder2__portrait">
-              <image-slot
-                id="founder-portrait"
-                class="founder2__portrait-slot"
-                shape="rect"
-                placeholder="Portrait · 4:5">
-              </image-slot>
+              <img
+                className="founder2__portrait-slot"
+                src="images/founder.webp"
+                alt="Izael Effemberg"
+                loading="lazy"
+              />
               <figcaption className="founder2__id">
                 <span className="founder2__id-name">Izael Effemberg</span>
                 <span className="founder2__id-role">{t({ en: "Founder · Fractional CPO / CTO", pt: "Fundador · CPO / CTO Fracional" })}</span>
@@ -326,13 +326,6 @@ function FinalCTA() {
   const t = useT();
   return (
     <section className="final-cta" id="cta" data-screen-label="16 CTA final">
-      <div className="final-cta__backdrop">
-        <image-slot
-          id="cta-backdrop"
-          shape="rect"
-          placeholder="">
-        </image-slot>
-      </div>
       <div className="container">
         <div className="final-cta__inner">
           <div className="final-cta__chapter">
@@ -365,11 +358,11 @@ function FinalCTA() {
 
           <div className="final-cta__signature">
             <span className="final-cta__signature-photo">
-              <image-slot
-                id="cta-founder"
-                shape="circle"
-                placeholder="Izael">
-              </image-slot>
+              <img
+                src="images/cta-founder.webp"
+                alt="Izael Effemberg"
+                loading="lazy"
+              />
             </span>
             <span className="final-cta__signature-text">
               <span className="final-cta__signature-name">Izael Effemberg</span>

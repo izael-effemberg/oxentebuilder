@@ -9,14 +9,7 @@ function MethodBuild() {
   const [lightbox, setLightbox] = React.useState(null);
 
   const openArtifacts = () => {
-    const slot = document.getElementById("build-artifacts");
-    let src = null;
-    if (slot && slot.shadowRoot) {
-      const img = slot.shadowRoot.querySelector("img");
-      if (img && img.src) src = img.src;
-    }
-    if (!src && slot) src = slot.getAttribute("src");
-    if (src) setLightbox(src);
+    setLightbox("images/artifacts.webp");
   };
 
   const steps = [
@@ -201,13 +194,13 @@ function MethodBuild() {
             onClick={openArtifacts}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openArtifacts(); } }}
           >
-            <image-slot
+            <img
               id="build-artifacts"
-              class="method2__slot"
-              shape="rect"
-              fit="contain"
-              placeholder="Artifacts photo · the BUILD artifacts"
-            ></image-slot>
+              className="method2__slot"
+              src="images/artifacts.webp"
+              alt={t({ en: "BUILD method artifacts", pt: "Artefatos do método BUILD" })}
+              loading="lazy"
+            />
             <span className="method2__media-zoom" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M6.5 1H1v5.5M9.5 1H15v5.5M6.5 15H1V9.5M9.5 15H15V9.5" />
