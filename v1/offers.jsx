@@ -122,7 +122,7 @@ function PackageModal({ pack, onClose }) {
                 <p>{t(pack.outcome)}</p>
               </div>
 
-              <a href={window.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--primary pkmodal__cta" onClick={onClose}>
+              <a href="#cta" className="btn btn--primary pkmodal__cta" onClick={onClose}>
                 <span>{t({ en: "Book a 30-minute call", pt: "Agendar conversa de 30 min" })}</span>
                 <span className="arrow">→</span>
               </a>
@@ -240,11 +240,11 @@ function Packages() {
   const openPack = packs.find((p) => p.id === openId) || null;
 
   return (
-    <section className="section" id="ofertas" data-screen-label="07 Ofertas">
+    <section className="section" id="ofertas" data-screen-label="10 Ofertas">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">07</span>
+            <span className="eyebrow__num">12</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "How we work", pt: "Como operamos" })}
           </div>

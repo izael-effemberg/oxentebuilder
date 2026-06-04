@@ -4,18 +4,12 @@
    ============================================ */
 
 const CTA_PRIMARY_LABEL = { en: "Book a 30-minute call", pt: "Agendar conversa de 30 minutos" };
-const BOOKING_URL = "https://calendar.app.google/c8R5DfCD7AJ749d1A";
-const OXENTE_EMAIL = "izael@oxentebuilder.com";
-window.BOOKING_URL = BOOKING_URL;
-window.OXENTE_EMAIL = OXENTE_EMAIL;
 
 function CTAButton({ label, variant = "primary", className = "" }) {
   const t = useT();
   return (
     <a
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#cta"
       className={`btn btn--${variant} ${className}`}
     >
       <span>{t(label || CTA_PRIMARY_LABEL)}</span>
@@ -24,28 +18,27 @@ function CTAButton({ label, variant = "primary", className = "" }) {
   );
 }
 
-function Nav({ home = true }) {
+function Nav() {
   const t = useT();
   const links = [
+    { href: "#metodo", label: { en: "Method", pt: "Método" } },
+    { href: "#track-record", label: { en: "Proof", pt: "Prova" } },
     { href: "#para-quem", label: { en: "Who it's for", pt: "Para quem" } },
-    { href: "#por-que-nos", label: { en: "Why us", pt: "Por que" } },
-    { href: "#ofertas", label: { en: "How we work", pt: "Como operamos" } },
-    { href: "track-record.html", label: { en: "Track record", pt: "Track record" } },
+    { href: "#ofertas", label: { en: "Engagements", pt: "Ofertas" } },
     { href: "#faq", label: { en: "FAQ", pt: "FAQ" } },
   ];
-  const resolve = (h) => (!home && h.charAt(0) === "#") ? "index.html" + h : h;
   return (
     <nav className="nav">
       <div className="nav__inner">
-        <a href={home ? "#top" : "index.html"} className="nav__logo" aria-label="Oxente Builder">
+        <a href="#top" className="nav__logo" aria-label="Oxente Builder">
           <LogoLockup iconSize={36} />
         </a>
         <div className="nav__links">
-          {links.map((l) => <a href={resolve(l.href)} key={l.href}>{t(l.label)}</a>)}
+          {links.map((l) => <a href={l.href} key={l.href}>{t(l.label)}</a>)}
         </div>
         <div className="nav__actions">
           <LangToggle />
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--primary nav__cta">
+          <a href="#cta" className="btn btn--primary nav__cta">
             {t({ en: "Talk to us", pt: "Conversar" })} <span className="arrow">→</span>
           </a>
         </div>
@@ -75,7 +68,7 @@ function Hero() {
     },
   ];
   return (
-    <header className="section hero" id="top" data-screen-label="Hero">
+    <header className="section hero" id="top" data-screen-label="01 Hero">
       <div className="container hero__split">
         <div className="hero__brandpanel" aria-hidden="false">
           <div className="hero__brandpanel-glow" aria-hidden="true"></div>
@@ -99,9 +92,9 @@ function Hero() {
 
           <div className="hero__ctas">
             <CTAButton />
-            <a href="method.html" className="btn btn--ghost">
+            <a href="#metodo" className="btn btn--ghost">
               {t({ en: "Explore the BUILD method", pt: "Conhecer o método BUILD" })}
-              <span className="arrow">→</span>
+              <span className="arrow">↓</span>
             </a>
           </div>
 
@@ -454,11 +447,11 @@ function ICP() {
   ];
 
   return (
-    <section className="section section--palha" id="para-quem" data-screen-label="02 Para quem">
+    <section className="section section--palha" id="para-quem" data-screen-label="05 Para quem">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">02</span>
+            <span className="eyebrow__num">04</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "Who it's for", pt: "Para quem é" })}
           </div>
@@ -520,11 +513,11 @@ function NotFor() {
   ];
 
   return (
-    <section className="section" id="nao-para" data-screen-label="03 Para quem não é">
+    <section className="section" id="nao-para" data-screen-label="06 Para quem não é">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">03</span>
+            <span className="eyebrow__num">05</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "Who it's not for", pt: "Para quem não é" })}
           </div>
@@ -654,106 +647,4 @@ function Essence() {
   );
 }
 
-// ============================================
-// Problem (condensed) — merges the Pain diagnostic with the 3 most
-// impactful cost numbers and the bridge into the BUILD method.
-// Replaces the standalone Pain + Cost + Essence + WhyNow sections in
-// the main scroll. (Those remain defined above for reference / drawers.)
-// ============================================
-function Problem() {
-  const t = useT();
-  const observed = [
-    { en: "Headcount up. Velocity down.", pt: "Headcount em alta. Velocidade em queda." },
-    { en: "AI adopted in pilots. Never scaled to operations.", pt: "IA adotada em pilotos. Sem escalar para a operação." },
-    { en: "Alignment meetings multiplying. Decisions slowing.", pt: "Reuniões de alinhamento multiplicando. Decisões demorando." },
-    { en: "Engineering ships — then has to redo it soon after.", pt: "Engenharia entregando — e precisando refazer logo depois." },
-  ];
-  const cause = [
-    { en: "The structure never changed to absorb AI.", pt: "A estrutura não mudou para receber a IA." },
-    { en: "Business, product, and engineering operate in silos.", pt: "Negócio, produto e engenharia operam em silos." },
-    { en: "Oral decisions. Ambiguous requirements. No traceability.", pt: "Decisões orais. Requisitos ambíguos. Sem rastreabilidade." },
-    { en: "AI stacked on a broken process only accelerates the noise.", pt: "IA empilhada em processo quebrado só acelera o ruído." },
-  ];
-  const stats = [
-    {
-      num: "30–50%",
-      label: { en: "of engineering time spent on rework", pt: "do tempo de engenharia em retrabalho" },
-      src: "DORA 2024",
-    },
-    {
-      num: "+50%",
-      label: { en: "of rework starts in poorly defined requirements", pt: "do retrabalho começa em requisitos mal definidos" },
-      src: "Carnegie Mellon SEI",
-    },
-    {
-      num: { en: "2.5×", pt: "2,5×" },
-      label: { en: "the cost of rebuilt software vs. building it right", pt: "o custo de refazer software vs. fazer certo" },
-      src: "Code Climate",
-    },
-  ];
-
-  return (
-    <section className="section" id="problema" data-screen-label="01 Problema">
-      <div className="container">
-        <div className="section-header">
-          <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">01</span>
-            <span className="eyebrow__sep">/</span>
-            {t({ en: "The Problem", pt: "O Problema" })}
-          </div>
-          <h2 className="h1">
-            {t({
-              en: <>You have more people in product and engineering than ever.<span className="muted"> And you ship less than you should.</span></>,
-              pt: <>Você tem mais gente em produto e engenharia do que nunca.<span className="muted"> E entrega menos do que deveria.</span></>,
-            })}
-          </h2>
-          <p className="lead" style={{ marginTop: 28 }}>
-            {t({
-              en: "The paradox of the AI era, in two layers: what leadership sees day to day — and what sits beneath the symptom.",
-              pt: "O paradoxo da era da IA, em duas camadas: o que a liderança vê no dia a dia — e o que está por baixo do sintoma.",
-            })}
-          </p>
-        </div>
-
-        <div className="pain-diagnostic">
-          <div className="pain-col pain-col--observed">
-            <div className="pain-col__label">{t({ en: "Observed symptom", pt: "Sintoma observado" })}</div>
-            <h3 className="pain-col__title">{t({ en: "What leadership sees.", pt: "O que a liderança vê." })}</h3>
-            <ol className="pain-list">
-              {observed.map((it, i) => <li key={i}>{t(it)}</li>)}
-            </ol>
-          </div>
-          <div className="pain-col pain-col--cause">
-            <div className="pain-col__label">{t({ en: "Root cause", pt: "Causa raiz" })}</div>
-            <h3 className="pain-col__title">{t({ en: "What sits beneath the symptom.", pt: "O que está por baixo do sintoma." })}</h3>
-            <ol className="pain-list">
-              {cause.map((it, i) => <li key={i}>{t(it)}</li>)}
-            </ol>
-          </div>
-        </div>
-
-        <div className="prob-cost">
-          <div className="prob-cost__label">{t({ en: "The price of standing still", pt: "O preço de não mudar" })}</div>
-          <div className="prob-cost__stats">
-            {stats.map((s, i) => (
-              <div className="prob-stat" key={i}>
-                <div className="prob-stat__num">{t(s.num)}</div>
-                <div className="prob-stat__label">{t(s.label)}</div>
-                <div className="prob-stat__src">{s.src}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="prob-bridge">
-          {t({
-            en: <><strong>The bill grows on three vectors — and the BUILD method attacks all three:</strong> organizational structure to resolve silos, atomic specs to cut rework at the source, and context architecture so AI executes with precision instead of generating noise.</>,
-            pt: <><strong>A conta cresce em três vetores — e o método BUILD ataca os três:</strong> estrutura organizacional para resolver silos, specs atômicas para reduzir retrabalho na origem e arquitetura de contexto para a IA executar com precisão, em vez de gerar ruído.</>,
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-Object.assign(window, { Nav, Hero, Essence, Pain, Cost, WhyNow, ICP, NotFor, Problem, CTAButton, CTA_PRIMARY_LABEL });
+Object.assign(window, { Nav, Hero, Essence, Pain, Cost, WhyNow, ICP, NotFor, CTAButton, CTA_PRIMARY_LABEL });

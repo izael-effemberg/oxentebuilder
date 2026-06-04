@@ -7,11 +7,11 @@
 function WhyUs() {
   const t = useT();
   return (
-    <section className="section section--palha" id="por-que-nos" data-screen-label="04 Por que a Oxente">
+    <section className="section section--palha" id="por-que-nos" data-screen-label="11 Por que a Oxente">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">04</span>
+            <span className="eyebrow__num">08</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "Why Oxente Builder", pt: "Por que a Oxente Builder" })}
           </div>
@@ -44,19 +44,6 @@ function WhyUs() {
               })}
             </p>
           </div>
-        </div>
-
-        <div className="why__links">
-          <a className="why__link" href="founder.html">
-            <span className="why__link-label">{t({ en: "About the founder", pt: "Sobre o fundador" })}</span>
-            <span className="why__link-text">{t({ en: "The engineer-turned-product-executive behind the method.", pt: "O engenheiro que virou executivo de produto por trás do método." })}</span>
-            <span className="why__link-cta">{t({ en: "Read his story", pt: "Ver a trajetória" })} <span aria-hidden="true">→</span></span>
-          </a>
-          <a className="why__link" href="method.html">
-            <span className="why__link-label">{t({ en: "The BUILD method", pt: "O método BUILD" })}</span>
-            <span className="why__link-text">{t({ en: "Five layers from business strategy down to delivery with AI.", pt: "Cinco camadas da estratégia de negócio até a entrega com IA." })}</span>
-            <span className="why__link-cta">{t({ en: "See how we work", pt: "Ver como operamos" })} <span aria-hidden="true">→</span></span>
-          </a>
         </div>
       </div>
     </section>);
@@ -115,11 +102,11 @@ function Founder() {
 
 
   return (
-    <section className="section" id="fundador" data-screen-label="08 Fundador">
+    <section className="section" id="fundador" data-screen-label="12 Fundador">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">08</span>
+            <span className="eyebrow__num">10</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "About the founder", pt: "Sobre o fundador" })}
           </div>
@@ -206,11 +193,11 @@ function Flow() {
 
 
   return (
-    <section className="section section--palha" id="como-comecamos" data-screen-label="11 Como começamos">
+    <section className="section section--palha" id="como-comecamos" data-screen-label="13 Como começamos">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">11</span>
+            <span className="eyebrow__num">13</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "How we start", pt: "Como começamos" })}
           </div>
@@ -295,29 +282,15 @@ function FAQ() {
       en: "A binary exit criterion, documented at the start of the engagement: the internal team runs all 5 layers of the BUILD method autonomously, with no dependency on Oxente Builder. Target metrics are defined in the BRD and reviewed every 30 days.",
       pt: "Critério de saída binário, documentado no início do engajamento: o time interno opera as 5 camadas do método BUILD com autonomia, sem dependência da Oxente Builder. Métricas-alvo são definidas no BRD e revisadas a cada 30 dias.",
     }
-  },
-  {
-    q: { en: "Why act now and not in two years?", pt: "Por que agir agora e não daqui a dois anos?" },
-    a: {
-      en: "Two forces are converging. AI is projected to shrink viable engineering teams by up to 80% by 2030 (Gartner · McKinsey), and high performers are gaining 3× advantage by redesigning workflows — not just adopting tools. 2026–2027 is the window where redesigning first sets the advantage; after that it's table stakes.",
-      pt: "Duas forças estão convergindo. A IA deve reduzir times de engenharia viáveis em até 80% até 2030 (Gartner · McKinsey), e empresas de alto desempenho ganham 3× de vantagem redesenhando workflows — não só adotando ferramentas. 2026–2027 é a janela em que redesenhar primeiro estabelece vantagem; depois disso vira o básico.",
-    }
-  },
-  {
-    q: { en: "Why fractional, and not a full-time hire?", pt: "Por que fractional, e não uma contratação full-time?" },
-    a: {
-      en: "Demand for fractional product and engineering executives is growing ~68% a year, at roughly half the cost of a full-time C-level at the same strategic level (Chief Outsiders · Bain). You get the seniority to redesign the structure without committing to a permanent executive headcount before the structure is ready for one.",
-      pt: "A demanda por executivos fractional de produto e engenharia cresce ~68% ao ano, a cerca de metade do custo de um C-level full-time no mesmo nível estratégico (Chief Outsiders · Bain). Você ganha a senioridade para redesenhar a estrutura sem comprometer um headcount executivo permanente antes de a estrutura estar pronta para um.",
-    }
   }];
 
 
   return (
-    <section className="section" id="faq" data-screen-label="08 FAQ">
+    <section className="section" id="faq" data-screen-label="15 FAQ">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">08</span>
+            <span className="eyebrow__num">14</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "Frequently asked questions", pt: "Perguntas frequentes" })}
           </div>
@@ -352,11 +325,11 @@ function FAQItem({ q, a, defaultOpen }) {
 function FinalCTA() {
   const t = useT();
   return (
-    <section className="final-cta" id="cta" data-screen-label="09 CTA final">
+    <section className="final-cta" id="cta" data-screen-label="16 CTA final">
       <div className="container">
         <div className="final-cta__inner">
           <div className="final-cta__chapter">
-            <span className="final-cta__chapter-num">09</span>
+            <span className="final-cta__chapter-num">15</span>
             <span className="final-cta__chapter-sep">/</span>
             {t({ en: "Next step", pt: "Próximo passo" })}
           </div>
@@ -373,12 +346,12 @@ function FinalCTA() {
             })}
           </p>
           <div className="final-cta__ctas">
-            <a href={window.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+            <a href="#" className="btn btn--primary">
               <span>{t({ en: "Book a 30-minute call", pt: "Agendar conversa de 30 minutos" })}</span>
               <span className="arrow">→</span>
             </a>
-            <a href={`mailto:${window.OXENTE_EMAIL}`} className="btn btn--ghost">
-              {window.OXENTE_EMAIL}
+            <a href="mailto:contato.izaeleffemberg@gmail.com" className="btn btn--ghost">
+              contato.izaeleffemberg@gmail.com
             </a>
           </div>
           <RiskReversal onDark />
@@ -407,29 +380,11 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__top">
-          <a href="index.html" className="footer__brand" aria-label="Oxente Builder">
+        <div className="footer__inner">
+          <div className="footer__brand">
             <LogoCompact onDark={true} />
-          </a>
-          <p className="footer__tagline">
-            {t({ en: "Executive consulting for product, technology and growth.", pt: "Consultoria executiva para produto, tecnologia e crescimento." })}
-          </p>
-          <a href={window.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="footer__cta">
-            {t({ en: "Book a strategic call", pt: "Agendar conversa estratégica" })} <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        <div className="footer__bottom">
-          <div className="footer__legal">
-            <span className="footer__legal-name">Izael Effemberg da Costa Consultoria em Tecnologia da Informação LTDA</span>
-            <span className="footer__legal-sep" aria-hidden="true">·</span>
-            <span className="footer__legal-doc">CNPJ 56.393.059/0001-41</span>
           </div>
-          <div className="footer__meta">
-            <span>{t({ en: "São Paulo · Brazil", pt: "São Paulo · Brasil" })}</span>
-            <span className="footer__meta-sep" aria-hidden="true">·</span>
-            <span>© 2026 Oxente Builder</span>
-          </div>
+          <div>{t({ en: "Founded by Izael Effemberg · São Paulo, Brazil · 2026", pt: "Fundada por Izael Effemberg · São Paulo, Brasil · 2026" })}</div>
         </div>
       </div>
     </footer>);

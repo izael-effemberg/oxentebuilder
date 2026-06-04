@@ -26,16 +26,17 @@ function App() {
     if (reduced) return;
 
     const selectors = [
-      ".pain-col", ".prob-stat", ".prob-bridge",
-      ".icp-intro", ".icp-card", ".icp-bridge",
+      ".essence__values .value", ".essence__method",
+      ".pain-col", ".cost-card", ".cost-synthesis",
+      ".pressure", ".timeline", ".icp-intro", ".icp-card", ".icp-bridge",
       ".not-for-list li",
-      ".marquee", ".tr-proof__stat", ".tr-featured", ".tr-seg-intro", ".tr-seg", ".tr-reveal",
-      ".method-lite__phase", ".method-lite__foot",
+      ".build-step", ".thread", ".build-artifacts",
+      ".method2", ".method2__showcase",
       ".beforeafter__row", ".beforeafter__synthesis",
-      ".why__col", ".founder2__aside", ".founder2__layer",
+      ".marquee", ".tr-summary", ".case", ".other", ".tr-footnote",
       ".pack", ".packs-note", ".pack-flow",
-      ".flow__step", ".faq__item",
-      ".talks", ".final-cta__inner",
+      ".why__col", ".founder2__aside", ".founder2__layer", ".flow__step", ".faq__item",
+      ".tcarousel", ".talks", ".final-cta__inner",
     ];
     const set = new Set();
     selectors.forEach((sel) => document.querySelectorAll(sel).forEach((el) => set.add(el)));
@@ -121,13 +122,20 @@ function App() {
       <div className="scroll-progress" aria-hidden="true"><div className="scroll-progress__bar" id="scrollbar"></div></div>
       <Nav />
       <Hero />
-      <Problem />
+      <Essence />
+      <Pain />
+      <Cost />
+      <WhyNow />
       <ICP />
       <NotFor />
-      <WhyUs />
-      <ProofTeaser />
+      <MethodBuild />
       <BeforeAfter />
+      <WhyUs />
+      <TrackRecord />
+      {t.showFounder && <Founder />}
+      <Testimonials />
       <Packages />
+      <Flow />
       <FAQ />
       <FinalCTA />
       <Footer />
@@ -160,6 +168,11 @@ function App() {
             { label: "Compacta", value: "compact" },
             { label: "Espaçosa", value: "spacious" },
           ]}
+        />
+        <TweakToggle
+          label="Bloco do fundador"
+          value={t.showFounder}
+          onChange={(v) => setTweak("showFounder", v)}
         />
       </TweaksPanel>
     </>

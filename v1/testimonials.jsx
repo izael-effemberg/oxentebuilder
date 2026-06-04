@@ -446,29 +446,12 @@ function TalksCarousel({ items }) {
 
 function Testimonials() {
   const t = useT();
-  const [featured, ...rest] = TESTIMONIALS;
-
-  const QuoteAuthor = ({ it }) => (
-    <figcaption className="quote__author">
-      <span className="quote__photo"><img src={it.photo} alt={it.name} loading="lazy" style={focalStyle(it.focal)} /></span>
-      <span className="quote__id">
-        <span className="quote__name">{it.name}</span>
-        <span className="quote__role">{it.role}{it.company ? <> · <b className="quote__company">{it.company}</b></> : null}</span>
-      </span>
-      {it.linkedin && (
-        <a className="quote__linkedin" href={it.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn — ${it.name}`}>
-          LinkedIn <span aria-hidden="true">↗</span>
-        </a>
-      )}
-    </figcaption>
-  );
-
   return (
-    <section className="section section--palha" id="depoimentos" data-screen-label="09 Depoimentos">
+    <section className="section section--palha" id="depoimentos" data-screen-label="12 Depoimentos">
       <div className="container">
         <div className="section-header">
           <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">09</span>
+            <span className="eyebrow__num">11</span>
             <span className="eyebrow__sep">/</span>
             {t({ en: "Social proof", pt: "Prova social" })}
           </div>
@@ -477,40 +460,21 @@ function Testimonials() {
           </h2>
           <p className="lead" style={{ marginTop: 24 }}>
             {t({
-              en: "Directors of engineering, founders, and CPOs who ran product, platform, architecture, and strategy alongside Izael Effemberg — each one verifiable on LinkedIn.",
-              pt: "Diretores de engenharia, founders e CPOs que dirigiram produto, plataforma, arquitetura e estratégia ao lado de Izael Effemberg — cada um verificável no LinkedIn.",
+              en: "Directors of engineering, founders, and CPOs who ran product, platform, architecture, and strategy alongside Izael Effemberg.",
+              pt: "Diretores de engenharia, founders e CPOs que dirigiram produto, plataforma, arquitetura e estratégia ao lado de Izael Effemberg.",
             })}
           </p>
         </div>
 
-        <div className="quotes">
-          <figure className="quote quote--featured">
-            <span className="quote__mark" aria-hidden="true">“</span>
-            <blockquote className="quote__text">{t(featured.longQuote || featured.quote)}</blockquote>
-            <QuoteAuthor it={featured} />
-          </figure>
-
-          {rest.map((it) => (
-            <figure className="quote" key={it.name}>
-              <blockquote className="quote__text">{t(it.quote)}</blockquote>
-              <QuoteAuthor it={it} />
-            </figure>
-          ))}
-        </div>
-
-        <div className="quotes__trust">
-          <span className="quotes__trust-stat">
-            {t({ en: "5 endorsements · 3 directors of engineering · 2 founders · 1 CPO", pt: "5 endorsements · 3 diretores de engenharia · 2 founders · 1 CPO" })}
-          </span>
-        </div>
+        <TestimonialsCarousel items={TESTIMONIALS} />
 
         <TalksCarousel items={TALKS} />
 
         <div className="testimonials__bridge">
           <div className="testimonials__bridge-text">
-            {t({ en: "Peer endorsements and public talks — proof you can verify before we ever speak.", pt: "Endorsements de pares e palestras públicas — prova que você verifica antes mesmo da nossa conversa." })}
+            {t({ en: "5 endorsements · 3 directors of engineering · 2 founders · 1 CPO", pt: "5 endorsements · 3 diretores de engenharia · 2 founders · 1 CPO" })}
           </div>
-          <a href={window.BOOKING_URL} target="_blank" rel="noopener noreferrer" className="testimonials__bridge-cta">
+          <a href="#cta" className="testimonials__bridge-cta">
             {t({ en: "Let's talk about your challenge", pt: "Vamos conversar sobre o seu desafio" })} <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -519,58 +483,4 @@ function Testimonials() {
   );
 }
 
-/* ---------------------------------------------------------
-   ProofTeaser — lean homepage proof band that points to the
-   dedicated Track Record and Social Proof pages.
---------------------------------------------------------- */
-function ProofTeaser() {
-  const t = useT();
-  const f = TESTIMONIALS[0];
-  return (
-    <section className="section proofteaser" id="prova" data-screen-label="05 Prova">
-      <div className="container">
-        <div className="proofteaser__head">
-          <div className="eyebrow eyebrow--chapter section-header__eyebrow">
-            <span className="eyebrow__num">05</span>
-            <span className="eyebrow__sep">/</span>
-            {t({ en: "Proof", pt: "Prova" })}
-          </div>
-          <h2 className="proofteaser__title">
-            {t({ en: "Operated at scale — and vouched for by the leaders who were there.", pt: "Operação em escala — e referendado pelas lideranças que estavam lá." })}
-          </h2>
-        </div>
-
-        <CompanyMarquee />
-
-        <div className="proofteaser__body">
-          <figure className="proofteaser__quote">
-            <span className="proofteaser__mark" aria-hidden="true">“</span>
-            <blockquote>{t(f.quote)}</blockquote>
-            <figcaption>
-              <span className="proofteaser__photo"><img src={f.photo} alt={f.name} loading="lazy" style={focalStyle(f.focal)} /></span>
-              <span className="proofteaser__id">
-                <span className="proofteaser__name">{f.name}</span>
-                <span className="proofteaser__role">{f.role} · <b>{f.company}</b></span>
-              </span>
-            </figcaption>
-          </figure>
-
-          <div className="proofteaser__links">
-            <a className="proofteaser__link" href="track-record.html">
-              <span className="proofteaser__link-label">{t({ en: "Track record", pt: "Track record" })}</span>
-              <span className="proofteaser__link-text">{t({ en: "15+ years across 8 high-scale companies, case by case.", pt: "15+ anos em 8 empresas de alta escala, case a case." })}</span>
-              <span className="proofteaser__link-cta">{t({ en: "See the cases", pt: "Ver os cases" })} <span aria-hidden="true">→</span></span>
-            </a>
-            <a className="proofteaser__link" href="social-proof.html">
-              <span className="proofteaser__link-label">{t({ en: "Social proof", pt: "Prova social" })}</span>
-              <span className="proofteaser__link-text">{t({ en: "Endorsements, talks, and public work you can verify.", pt: "Endorsements, palestras e trabalho público verificável." })}</span>
-              <span className="proofteaser__link-cta">{t({ en: "Read all endorsements", pt: "Ver todos os depoimentos" })} <span aria-hidden="true">→</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-Object.assign(window, { Testimonials, TestimonialsCarousel, TalksCarousel, ProofTeaser });
+Object.assign(window, { Testimonials, TestimonialsCarousel, TalksCarousel });
