@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marcus VB | Links oficiais</title>
+  <meta name="description" content="Ator, comunicador e creator. Viagens, cultura pop e entretenimento com histórias que conectam pessoas e marcas." />
+  <meta property="og:title" content="Marcus VB | Links oficiais" />
+  <meta property="og:description" content="Histórias reais, cultura pop e experiências que conectam pessoas e marcas." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="avatar" data-profile-avatar aria-hidden="true"></div>
+      <p class="eyebrow" data-profile-eyebrow></p>
+      <h1 id="page-title" data-profile-name></h1>
+      <p class="hero__lead" data-profile-description></p>
+      <p class="hero__support" data-profile-support></p>
+      <div class="hero__actions">
+        <a class="button button--primary" data-hero-whatsapp target="_blank" rel="noopener"></a>
+        <a class="button button--secondary" data-hero-media target="_blank" rel="noopener"></a>
+      </div>
+    </section>
+
+    <section class="credibility" data-credibility-section aria-label="Credenciais"></section>
+
+    <section class="media-card" aria-labelledby="media-title">
+      <div class="media-card__icon" data-icon="mediaKit" aria-hidden="true"></div>
+      <div class="media-card__content">
+        <p class="section-kicker">Trabalhos</p>
+        <h2 id="media-title">Mídia kit e parcerias</h2>
+        <p>Conheça formatos, possibilidades de colaboração e informações comerciais.</p>
+        <div class="media-card__actions">
+          <a class="button button--primary" data-media-link target="_blank" rel="noopener">
+            Acessar mídia kit
+            <span data-icon="externalLink" aria-hidden="true"></span>
+          </a>
+          <a class="subtle-link" data-campaign-link target="_blank" rel="noopener">Falar sobre uma campanha</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="social-title">
+      <div class="section-heading">
+        <p class="section-kicker">Canais oficiais</p>
+        <h2 id="social-title">Redes sociais</h2>
+      </div>
+      <nav class="social-grid" data-social-links aria-label="Redes sociais"></nav>
+    </section>
+
+    <section class="contact-card" aria-labelledby="contact-title">
+      <p class="section-kicker">Contato</p>
+      <h2 id="contact-title">Vamos criar algo juntos?</h2>
+      <p>Para campanhas, eventos, publicidade, experiências e projetos especiais.</p>
+      <div class="contact-card__actions">
+        <a class="button button--primary" data-contact-whatsapp target="_blank" rel="noopener"></a>
+        <a class="button button--ghost" data-contact-email></a>
+        <button class="button button--ghost" type="button" data-copy-email></button>
+      </div>
+      <p class="copy-feedback" data-copy-feedback role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="footer">
+      <span data-footer-year></span>
+      <a data-footer-instagram target="_blank" rel="noopener">Instagram</a>
+    </footer>
+  </main>
+</body>
+</html>
