@@ -19,21 +19,28 @@ No GitHub:
 2. Em Build and deployment, selecione Source: GitHub Actions
 3. Faça push na branch `main`
 
-O workflow instala dependências dentro de `izael/`, roda o build e publica `izael/out`.
+O workflow instala dependências dentro de `izael/`, roda o build com `NEXT_PUBLIC_BASE_PATH=/izael` e publica:
+
+- o site atual da Oxente na raiz
+- a página pessoal do Izael em `/izael/`
 
 ## URL com subpasta
 
-Para GitHub Pages de repositório, como:
+Este repositório já tem o site da Oxente na raiz. A página do Izael deve ser acessada em:
 
 ```text
-https://izael-effemberg.github.io/oxentebuilder/
+https://www.oxentebuilder.com/izael/
 ```
 
-o projeto infere automaticamente o `basePath` como `/oxentebuilder` durante o GitHub Actions.
+ou, sem domínio customizado:
+
+```text
+https://izael-effemberg.github.io/oxentebuilder/izael/
+```
 
 ## Domínio customizado ou página raiz
 
-Se publicar sem subpasta, como:
+Se um dia este app virar o site inteiro, sem subpasta, como:
 
 ```text
 https://izael-effemberg.com/
@@ -45,10 +52,10 @@ ou:
 https://izael-effemberg.github.io/
 ```
 
-adicione esta variável em Settings -> Secrets and variables -> Actions -> Variables:
+troque no workflow `NEXT_PUBLIC_BASE_PATH: /izael` por:
 
 ```text
-NEXT_PUBLIC_BASE_PATH=none
+NEXT_PUBLIC_BASE_PATH: none
 ```
 
 ## Build local
@@ -60,8 +67,8 @@ npm run build
 
 ## Testar build local simulando GitHub Pages em subpasta
 
-Exemplo para um repositório chamado `oxentebuilder`:
+Para simular a URL `/izael/`:
 
 ```bash
-GITHUB_ACTIONS=true GITHUB_REPOSITORY=izael-effemberg/oxentebuilder npm run build
+NEXT_PUBLIC_BASE_PATH=/izael npm run build
 ```

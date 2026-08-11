@@ -40,7 +40,20 @@ jobs:
       - name: Build static site
         run: npm run build:github
         env:
-          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+          NEXT_PUBLIC_BASE_PATH: /izael
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p ../publish/izael
+          rsync -a ../ ./../publish \
+            --exclude .git \
+            --exclude .github \
+            --exclude .claude \
+            --exclude .DS_Store \
+            --exclude publish \
+            --exclude izael
+          rsync -a ./out/ ../publish/izael/ --exclude .DS_Store
+          touch ../publish/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -48,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./izael/out
+          path: ./publish
 
   deploy:
     environment:
