@@ -13,8 +13,18 @@ const withUtm = (url: string, campaign: string) => {
   return `${url}${separator}utm_source=instagram&utm_medium=bio&utm_campaign=${campaign}`;
 };
 
+const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] || "";
+const inferredGithubPagesBasePath =
+  process.env.GITHUB_ACTIONS === "true" && repositoryName && !repositoryName.endsWith(".github.io")
+    ? `/${repositoryName}`
+    : "";
+const basePath = configuredBasePath === "none" ? "" : configuredBasePath || inferredGithubPagesBasePath;
+const assetPath = (path: string) => `${basePath}${path}`;
+
 export const siteConfig = {
   url: "https://izael-effemberg.com",
+  favicon: assetPath("/favicon.svg"),
   profile: {
     name: "Izael Effemberg",
     positioning: "Produto · Tecnologia · Inteligência Artificial · Liderança",
@@ -24,7 +34,7 @@ export const siteConfig = {
     credentials: "15+ anos em Produto & Tecnologia · Founder · Speaker · Colunista",
     description:
       "Estrategista de Produto, Tecnologia e IA, creator, palestrante, colunista e fundador da Oxente Builder.",
-    image: "/images/izael-effemberg-real.png"
+    image: assetPath("/images/izael-effemberg-real.png")
   },
   socialLinks: [
     { label: "Instagram", href: withUtm("https://instagram.com/izaeleffemberg", "social_instagram"), event: "click_instagram", icon: "Instagram" },
